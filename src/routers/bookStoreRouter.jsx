@@ -1,7 +1,7 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
-import Navbar from '@/components/navbar';
-import Books from '@/components/booksList';
+import Books from '@/components/bookList';
 import Categories from '@/components/categories';
+import Navbar from '@/components/navbar';
 
 
 
