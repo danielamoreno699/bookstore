@@ -4,7 +4,7 @@
 
   
 
-  <h2><b>Math Magicians Calculator project</b></h2>
+  <h2><b>Bookstore React App</b></h2>
 
 </div>
 
@@ -68,7 +68,7 @@ In order to run this project you need the following tools:
 Clone this repository to your desired folder by running the following commands in your terminal:
 
 ```sh
-  cd your-prefered-folder-name
+  cd bookstore
   
   git clone 
 ```
@@ -88,7 +88,7 @@ Clone this repository to your desired folder by running the following commands i
 To run the project, execute the following command:
 
 ```sh
-  yarn run dev
+  npm run dev
 
 ```
 
@@ -97,7 +97,7 @@ To run the project, execute the following command:
 To run tests, run the following command:
 
 ```sh
-  yarn run test
+  npm run test
 ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
