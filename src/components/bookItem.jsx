@@ -1,4 +1,6 @@
 import PropTypes from 'prop-types';
+
+
 const BookItem = ({ category, title, author, chapter, progress } ) => {
    
     return (
