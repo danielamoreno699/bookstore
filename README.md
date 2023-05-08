@@ -46,7 +46,7 @@ By building this application, using React.
 ### Key Features <a name="key-features"></a>
 
 - **[Its a simple design]**
-- **[its clear]**
+
 - **[its friendly]**
 - **[it has navigation routers]**
 
