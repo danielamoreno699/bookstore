@@ -1,4 +1,19 @@
+import { useSelector, useDispatch} from "react-redux";
+import { useState } from "react";
+
 const Form = () => {
+
+  const [formSubmitted, setformSubmitted] = useState(false)
+
+  const [formValues, setformValues] = useState({
+
+    category: '',
+    title: '',
+    authors: '',
+    chapter: ''
+    
+})
+
     const authors = [
       { name: 'Author 1', value: 'title1' },
       { name: 'Author 2', value: 'title2' },

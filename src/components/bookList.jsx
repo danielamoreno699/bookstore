@@ -10,8 +10,7 @@ const Books = () => {
     category: "",
     title: "",
     author: "",
-    Currentchapter: "",
-    progress: ""
+    chapter: ""
   });
 
   return (

@@ -1,7 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 
-const initialState = []
+const initialState = {
+    bookList : [],
+    progress : 0
+}
 
 export const bookSlice = createSlice({
     name:'book',
@@ -10,14 +13,11 @@ export const bookSlice = createSlice({
             addBook: (state, action) => {
                 state.push(action.payload)
             },
-            onDeleteBook: (state) => {
-                if(state){
-                    state.filter(book => book.id !== state.activeEvent.id)
-                    
-                }
-             
-        
-               },
+            removeBook: (state, action) => {
+                const itemId = action.payload
+                state.cartItems = state.cartItems.filter((item) =>  item.id !== itemId)
+            },
+            
     }
 })
 
