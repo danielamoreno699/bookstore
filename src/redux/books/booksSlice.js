@@ -15,7 +15,7 @@ export const bookSlice = createSlice({
             },
             removeBook: (state, action) => {
                 const itemId = action.payload
-                state.cartItems = state.cartItems.filter((item) =>  item.id !== itemId)
+                state.bookList = state.bookList.filter((item) =>  item.id !== itemId)
             },
             
     }

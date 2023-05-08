@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-const BookItem = ({ id, category, title, author, chapter, progress } ) => {
+const BookItem = ({ category, title, author, chapter, progress } ) => {
    
     return (
       <div className="container-bookItem">
