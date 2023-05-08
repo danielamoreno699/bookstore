@@ -10,9 +10,14 @@ export const bookSlice = createSlice({
             addBook: (state, action) => {
                 state.push(action.payload)
             },
-            removeBook: (state, action) => {
+            onDeleteBook: (state) => {
+                if(state){
+                    state.filter(book => book.id !== state.activeEvent.id)
                     
-            }
+                }
+             
+        
+               },
     }
 })
 
