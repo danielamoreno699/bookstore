@@ -47,7 +47,6 @@ By building this application, using React.
 
 - **[Its a simple design]**
 
-- **[its friendly]**
 - **[it has navigation routers]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
