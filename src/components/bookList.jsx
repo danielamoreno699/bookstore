@@ -1,14 +1,17 @@
+import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
 import Form from "./form";
 import BookItem from "./bookItem";
 
 const Books = () => {
-  const bookInfo = {
-    category: "action",
-    title: "The Hunger Games",
-    author: "Suzanne Collins",
-    chapter: "Chapter 17",
-    progress: "64%"
-  };
+
+  const [bookInfo, SetBookInfo] = useState({
+    category: "",
+    title: "",
+    author: "",
+    chapter: "",
+    progress: ""
+  });
 
   return (
     <>
