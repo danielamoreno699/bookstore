@@ -7,7 +7,7 @@ const initialState = {
 }
 
 export const bookSlice = createSlice({
-    name:'book',
+    name:'books',
     initialState,
     reducers: {
             addBook: (state, action) => {
