@@ -5,6 +5,14 @@ import { v4 as uuidv4 } from 'uuid';
 
 const Form = () => {
   
+  const categories = [
+    'science-finction',
+    'horror',
+    'action',
+    'romance'
+    
+  ];
+
   const dispatch = useDispatch();
   
   const [formValues, setformValues] = useState({
@@ -22,7 +30,7 @@ const Form = () => {
 
   const onSubmit = (event) => {
     event.preventDefault();
-    
+    console.log(formValues)
 
     if (formValues.title.trim().length <= 0 || formValues.author.trim().length <= 0) {
       
@@ -37,7 +45,8 @@ const Form = () => {
     setformValues({
       title: '',
       author: '',
-      item_id: ''
+      item_id: '',
+      category: ''
     });
   
     
@@ -56,6 +65,14 @@ const Form = () => {
             name="author"
             onChange={onInputChange}
           />
+          <select name="category" placeholder="Choose one..." value={formValues.category} onChange={onInputChange}>
+          <option value="">Choose one...</option>
+            {categories.map((category) => (
+              <option key={category} value={category}>
+            {category}
+            </option>
+            ))}
+        </select>
           <button className="btn-submit" type="submit">
             Add Book
           </button>
