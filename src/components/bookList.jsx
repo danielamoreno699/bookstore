@@ -5,17 +5,19 @@ import BookItem from "./bookItem";
 
 
 const Books = () => {
+  const dispatch = useDispatch()
+  const {bookList} = useSelector((store) => store.book)
 
-  const bookInfo = {
-    title: '',
-    author: '',
-    chapter: ''
-  }
 
 
   return (
     <>
-      <BookItem bookInfo={bookInfo} />
+      {bookList.map((book) => {
+        return  <BookItem key={book.item_id}{...book} />
+      })
+
+      }
+     
       <Form />
     </>
   );
