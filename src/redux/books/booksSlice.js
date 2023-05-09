@@ -1,8 +1,9 @@
+import bookItems from "@/helpers/bookItems";
 import { createSlice } from "@reduxjs/toolkit";
 
 
 const initialState = {
-    bookList : [],
+    bookList : bookItems,
     progress : 0
 }
 
