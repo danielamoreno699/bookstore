@@ -1,7 +1,9 @@
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux'
+import {  removeBook } from '@/redux/books/booksSlice';
 
-
-const BookItem = ({ category, title, author, chapter, progress } ) => {
+const BookItem = ({ item_id, title, author, category} ) => {
+  const dispatch = useDispatch()
    
     return (
       <div className="container-bookItem">
@@ -18,7 +20,10 @@ const BookItem = ({ category, title, author, chapter, progress } ) => {
                 <button>Comments</button>
                 </li>
                 <li>
-                  <button>Delete Book</button>
+                  <button
+                  onClick={() => {dispatch(removeBook(item_id))}}
+                  >Delete Book
+                  </button>
                 </li>
                 <li>
                 <button>Edit</button>
@@ -31,14 +36,14 @@ const BookItem = ({ category, title, author, chapter, progress } ) => {
         <div className="loading-status">
           <div className="loadingSpinner"></div>
           <div className="completed-status">
-            <h4>{progress}</h4>
+            <h4> 17%</h4>
             <p>completed</p>
           </div>
         </div>
   
         <div className="book-status">
           <p>CURRENT CHAPTER</p>
-          <p>{chapter}</p>
+          <p>chapter 1</p>
           <button>Update Progress</button>
         </div>
       </div>
@@ -48,8 +53,7 @@ const BookItem = ({ category, title, author, chapter, progress } ) => {
     category: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     author: PropTypes.string.isRequired,
-    chapter: PropTypes.string.isRequired,
-    progress: PropTypes.string.isRequired,
+    item_id: PropTypes.string.isRequired,
   };
   export default BookItem;
   

@@ -1,8 +1,9 @@
+import bookItems from "@/helpers/bookItems";
 import { createSlice } from "@reduxjs/toolkit";
 
 
 const initialState = {
-    bookList : [],
+    bookList : bookItems,
     progress : 0
 }
 
@@ -11,11 +12,11 @@ export const bookSlice = createSlice({
     initialState,
     reducers: {
             addBook: (state, action) => {
-                state.push(action.payload)
+                state.bookList.push(action.payload)
             },
             removeBook: (state, action) => {
                 const itemId = action.payload
-                state.bookList = state.bookList.filter((item) =>  item.id !== itemId)
+                state.bookList = state.bookList.filter((book) =>  book.item_id !== itemId)
             },
             
     }
