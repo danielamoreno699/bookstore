@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 const Form = () => {
   
   const categories = [
-    'science-finction',
+    'science-fiction',
     'horror',
     'action',
     'romance'

@@ -1,24 +1,36 @@
-
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Form from "./form";
 import BookItem from "./bookItem";
+import { getBooks } from "@/redux/books/booksSlice";
 
 
 const Books = () => {
   
-  const {bookList} = useSelector((store) => store.book)
+  const { bookList, error } = useSelector((store) => store.book);
 
+  const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(getBooks());
+  }, [dispatch]);
+
+  console.log("bookList:", bookList);
+  console.log("error:", error);
+
+  if (error) {
+    return <p>{error}</p>;
+  }
+
+  const allBooks = Object.values(bookList).flat();
 
   return (
     <>
-      {bookList.map((book) => {
-        return  <BookItem key={book.item_id}{...book} />
-      })
-
-      }
      
+        {allBooks.map((book) => (
+          <BookItem key={book.item_id} {...book} />
+        ))}
+      
       <Form />
     </>
   );

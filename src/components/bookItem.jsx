@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux'
 import {  removeBook } from '@/redux/books/booksSlice';
 
-const BookItem = ({ item_id, title, author, category} ) => {
+const BookItem = ({ item_id,  author, title,  category} ) => {
   const dispatch = useDispatch()
    
     return (

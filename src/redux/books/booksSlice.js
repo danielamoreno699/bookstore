@@ -4,21 +4,24 @@ import axios from "axios";
 
 const url = "https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/MlarP3d61maa1H7Jrx4x/books"
 
-const initialState = {
-    bookList : [],
-    progress : 0
-}
-
-export const getBooks = createAsyncThunk('book/getBooks', async() => {
+export const getBooks = createAsyncThunk('book/getBooks', async(name, thunkAPI) => {
     try {
         const resp = await axios(url)
+        console.log(resp.data)
         return resp.data
     } catch (error) {
         return error
     }
-
-    
 })
+
+
+const initialState = {
+    bookList : [],
+    isLoading: false,
+    error: null,
+}
+
+
 
 export const bookSlice = createSlice({
     name:'books',
