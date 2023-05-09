@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux'
-import { addBook, removeBook } from '@/redux/books/booksSlice';
+import {  removeBook } from '@/redux/books/booksSlice';
 
 const BookItem = ({ item_id, title, author, category} ) => {
   const dispatch = useDispatch()
@@ -53,8 +53,6 @@ const BookItem = ({ item_id, title, author, category} ) => {
     category: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     author: PropTypes.string.isRequired,
-    chapter: PropTypes.string.isRequired,
-    progress: PropTypes.string.isRequired,
     item_id: PropTypes.string.isRequired,
   };
   export default BookItem;

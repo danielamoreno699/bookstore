@@ -1,43 +1,56 @@
-
+import { addBook } from '@/redux/books/booksSlice';
+import { useDispatch } from 'react-redux';
+import { useState } from 'react';
 
 const Form = () => {
+  const dispatch = useDispatch();
+  const [formSubmitted, setformSubmitted] = useState(false);
+  const [formValues, setformValues] = useState({
+    title: '',
+    author: '',
+  });
 
-
-    const authors = [
-      { name: 'Author 1', value: 'title1' },
-      { name: 'Author 2', value: 'title2' },
-      { name: 'Author 3', value: 'title3' },
-    ];
-  
-    return (
-      <>
-        <div className="form-container">
-          <h3>Add new Book</h3>
-          <form className="form">
-            <input
-              type="text"
-              placeholder="book title"
-              className="input"
-            />
-            <select className="input">
-              <option value="" selected disabled hidden>
-                Select author
-              </option>
-              {authors.map(author => (
-                <option key={author.value} value={author.value}>
-                  {author.name}
-                </option>
-              ))}
-            </select>
-  
-            <button className="btn-submit" type="submit">
-              Submit
-            </button>
-          </form>
-        </div>
-      </>
-    );
+  const onInputChange = ({ target }) => {
+    setformValues({
+      ...formValues,
+      [target.name]: target.value,
+    });
   };
+
+  const onSubmit = (event) => {
+    event.preventDefault();
+    setformSubmitted(true);
+
+    if (formValues.title.trim().length <= 0 || formValues.author.trim().length <= 0) {
+      setformSubmitted(false);
+      return;
+    }
+
+    dispatch(addBook(formValues));
   
-  export default Form;
-  
+    setformSubmitted(false);
+  };
+
+  return (
+    <>
+      <div className="form-container">
+        <h3>Add new Book</h3>
+        <form className="form" onSubmit={onSubmit}>
+          <input type="text" placeholder="book title" value={formValues.title} name="title" onChange={onInputChange} />
+          <input
+            type="text"
+            placeholder="book author"
+            value={formValues.author}
+            name="author"
+            onChange={onInputChange}
+          />
+          <button className="btn-submit" type="submit">
+            Add Book
+          </button>
+        </form>
+      </div>
+    </>
+  );
+};
+
+export default Form;
