@@ -1,13 +1,17 @@
 import { addBook } from '@/redux/books/booksSlice';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 const Form = () => {
+  
+
   const dispatch = useDispatch();
   const [formSubmitted, setformSubmitted] = useState(false);
   const [formValues, setformValues] = useState({
     title: '',
     author: '',
+    item_id: '',
   });
 
   const onInputChange = ({ target }) => {
@@ -26,7 +30,10 @@ const Form = () => {
       return;
     }
 
-    dispatch(addBook(formValues));
+    dispatch(addBook({
+      ...formValues,
+      item_id: uuidv4() 
+    }));
   
     setformSubmitted(false);
   };
