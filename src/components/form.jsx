@@ -34,6 +34,12 @@ const Form = () => {
       ...formValues,
       item_id: uuidv4() 
     }));
+
+    setformValues({
+      title: '',
+      author: '',
+      item_id: ''
+    });
   
     setformSubmitted(false);
   };
