@@ -47,8 +47,7 @@ By building this application, using React.
 ### Key Features <a name="key-features"></a>
 
 - **[Its a simple design]**
-- **[its clear]**
-- **[its friendly]**
+
 - **[it has navigation routers]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
