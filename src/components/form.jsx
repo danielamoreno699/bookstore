@@ -7,7 +7,7 @@ const Form = () => {
   
 
   const dispatch = useDispatch();
-  const [formSubmitted, setformSubmitted] = useState(false);
+  
   const [formValues, setformValues] = useState({
     title: '',
     author: '',
@@ -23,10 +23,10 @@ const Form = () => {
 
   const onSubmit = (event) => {
     event.preventDefault();
-    setformSubmitted(true);
+    
 
     if (formValues.title.trim().length <= 0 || formValues.author.trim().length <= 0) {
-      setformSubmitted(false);
+      
       return;
     }
 
@@ -41,7 +41,7 @@ const Form = () => {
       item_id: ''
     });
   
-    setformSubmitted(false);
+    
   };
 
   return (
