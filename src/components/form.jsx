@@ -65,7 +65,9 @@ const Form = () => {
   return (
     <>
       <div className="form-container">
-        <h3>Add new Book</h3>
+        <span className="Title Text-Style-10">
+          ADD NEW BOOK
+        </span>
         <form className="form" onSubmit={onSubmit}>
           <input
             type="text"

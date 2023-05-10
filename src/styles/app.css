@@ -313,21 +313,46 @@ a {
   color: #fff;
 }
 
+
+.Line {
+  width: 75rem;
+  height: 0.125rem;
+  margin: 2.5rem 0.063rem 1.813rem 0;
+  border: solid 1px #e8e8e8;
+}
 /* form */
 
+.Title {
+  width: 10.875rem;
+  height: 1.5rem;
+  margin: 1.813rem 32.75rem 1.188rem 0;
+  font-family: Montserrat;
+  font-size: 1.25rem;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.18px;
+  color: #888;
+}
+
 .form-container {
-  padding: 1rem;
+  width: 50%;
+ 
 }
 
 .form {
+  
+  height: 2.813rem;
+  background-color: #000;
   gap: 1rem;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .input {
-  width: 30rem;
-  padding: 1rem;
+  width: 50rem;
+  padding: 2rem;
 }
 
 .btn-submit {

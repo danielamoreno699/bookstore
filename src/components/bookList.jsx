@@ -51,6 +51,7 @@ const Books = () => {
 
           />
         ))}
+        <div className="Line" />
         <Form />
       </div>
 
