@@ -94,7 +94,9 @@ const Form = () => {
             ))}
           </select>
           <button className="btn-submit" type="submit">
-            Add Book
+            <span className="ADD-BOOK Text-Style">
+              ADD BOOK
+            </span>
           </button>
         </form>
       </div>

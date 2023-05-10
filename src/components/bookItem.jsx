@@ -86,7 +86,7 @@ const BookItem = ({
         </span>
         <button type="button" className="btn-update-progress">
           <span className="Update-progress">
-            Update progress
+            UPDATE PROGRESS
           </span>
         </button>
 
