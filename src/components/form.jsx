@@ -1,8 +1,9 @@
 import { addBook } from '@/redux/books/booksSlice';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { postBook } from '@/redux/books/booksSlice';
+import { getBooks } from '@/redux/books/booksSlice'; // import the getBooks action creator
 
 const Form = () => {
   
@@ -15,8 +16,13 @@ const Form = () => {
   ];
 
   const dispatch = useDispatch();
+  const [isLoading, setIsLoading] = useState(false);
 
- 
+  useEffect(() => {
+    getBooks()
+  }, [dispatch])
+  
+
   const [formValues, setformValues] = useState({
     title: '',
     author: '',
@@ -40,27 +46,47 @@ const Form = () => {
       return;
     }
 
+    setIsLoading(true); 
     dispatch(postBook({
       ...formValues,
       item_id: uuidv4() 
-    }));
-
-    setformValues({
-      title: '',
-      author: '',
-      item_id: '',
-      category: ''
+    })).then(() => {
+      setIsLoading(false);
+      setformValues({
+        title: '',
+        author: '',
+        item_id: '',
+        category: ''
+      });
+      dispatch(getBooks());
+    }).catch(() => {
+      setIsLoading(false);
     });
-  
+
+ 
+
+    
     
   };
+
+
+  if (isLoading) {
+    return <div className="alert alert-success loading" role="alert">Loading...</div>;
+  }
+
+
 
   return (
     <>
       <div className="form-container">
         <h3>Add new Book</h3>
         <form className="form" onSubmit={onSubmit}>
-          <input type="text" placeholder="book title" value={formValues.title} name="title" onChange={onInputChange} />
+          <input type="text" 
+          placeholder="book title" 
+          value={formValues.title} 
+          name="title" 
+          onChange={onInputChange} />
+
           <input
             type="text"
             placeholder="book author"
