@@ -31,13 +31,12 @@
 # 📖 Book Store <a name="about-project"></a>
 
 
-**Book Store** is a website for book lovers. It is a Single Page App (SPA) that allows users to:
+**Book Store** is a website for book lovers. It is a Single Page App (SPA) that uses APIS and allows users to:
 
 - Add and store books.
 - Remove books.
-- Delete Books.
-- Edit Books
-- Make comments
+- Display books from apis
+
 
 
 By building this application, using React.
@@ -49,6 +48,7 @@ By building this application, using React.
 - **[Its a simple design]**
 
 - **[it has navigation routers]**
+- **[it implements APIS to make the app work properly]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -147,6 +147,7 @@ If you like this project please give me a comment!
 
 
 I would like to thanks to a Microverse fort the support!
+the design is inspired in the Zeplin design
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
