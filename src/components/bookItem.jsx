@@ -37,16 +37,16 @@ const BookItem = ({
             <h4 className="title-txt">{title}</h4>
             <p className="author-txt">{author}</p>
           </div>
-         
+
           <ul className="ul-actions">
             <li>
               <button type="button" className="link-button"> Comment</button>
             </li>
-            <span className="action-separator">|</span>
+            <div className="Line-2" />
             <li>
               <button type="button" className="link-button edit"> Edit</button>
             </li>
-            <span className="action-separator">|</span>
+            <div className="Line-2" />
             <li>
 
               <button type="button" className="link-button" onClick={handleDelete}>
@@ -54,24 +54,40 @@ const BookItem = ({
               </button>
 
             </li>
-           
+
           </ul>
-        
+
         </div>
       </div>
 
       <div className="loading-status">
-        <div className="loadingSpinner" />
-        <div className="completed-status">
-          <h4> 17%</h4>
-          <p>completed</p>
-        </div>
-      </div>
 
+        <div className="spinner">
+          <div className="Oval-2" />
+
+        </div>
+        <div className="completed-status">
+          <span className="-Percent-Complete">
+            17%
+          </span>
+          <span className="Completed Text-Style-2">
+            Completed
+          </span>
+        </div>
+
+      </div>
+      <div className="Line-3" />
       <div className="book-status">
-        <p>CURRENT CHAPTER</p>
-        <p>chapter 1</p>
-        <button type="button">Update Progress</button>
+        <span className="Current-Chapter Text-Style-7">
+          Current Chapter
+        </span>
+        <span className="Current-Lesson Text-Style-4">
+          Chapter 17
+        </span>
+        <span className="Update-progress">
+          Update progress
+        </span>
+
       </div>
     </div>
   );

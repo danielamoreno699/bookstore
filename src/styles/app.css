@@ -86,15 +86,6 @@ a {
 
 }
 
-/* .nav-links {
-  display: flex;
-  justify-content: left;
-  flex-direction: row;
-  gap: 2rem;
-  margin-left: 2rem;
-} */
-
-/* container books */
 
 .container{
   background-color: #f5f6fa;
@@ -196,10 +187,124 @@ a {
   cursor: pointer;
 }
 
+.Line-2 {
+  width: 0.125rem;
+  height: 1.5rem;
+  margin: 0.75rem 1.063rem 0 0.938rem;
+  border: solid 1px #e8e8e8;
+}
+
+.Oval-2 {
+  width: 4.25rem;
+  height: 4.25rem;
+  border-radius: 50%;
+  border: 4px solid #ccc;
+ border-top-color:   #307bbe; 
+ 
+  
+  
+
+}
+.spinner {
+  padding: 1rem;
+
+}
+.completed-status{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+  width: 6rem
+
+}
+
+.-Percent-Complete {
+  width: 4.25rem;
+  height: 2.438rem;
+  margin: 0.063rem 5.75rem 0 0.688rem;
+  font-family: Montserrat;
+  font-size: 2rem;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #121212;
+}
+
+.Completed {
+  width: 5rem;
+  height: 1.125rem;
+  margin: 0.438rem 4.938rem 0.75rem 0.75rem;
+  opacity: 0.5;
+  font-family: Montserrat;
+  font-size: 0.875rem;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #121212;
+}
+
+.Line-3 {
+  width: 0.125rem;
+  height: 4.375rem;
+  margin: 1.125rem 3.688rem 0 4.938rem;
+  border: solid 1px #e8e8e8;
+}
+.book-status{
+  display: flex;
+  flex-direction: column;
+}
+.Current-Chapter {
+  width: 7.875rem;
+  height: 1.125rem;
+  margin: 0.063rem 3.625rem 0 3.688rem;
+  opacity: 0.5;
+  font-family: RobotoSlab;
+  font-size: 0.813rem;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #121212;
+}
+
+.Current-Lesson {
+  width: 4.688rem;
+  height: 1.313rem;
+  margin: 0.438rem 6.813rem 0.25rem 3.688rem;
+  font-family: RobotoSlab;
+  font-size: 1rem;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.4px;
+  color: #121212;
+}
 .loading-status {
   display: flex;
   flex-direction: row;
 }
+
+.Update-progress {
+  width: 8.938rem;
+  height: 1.125rem;
+  font-family: RobotoSlab;
+  font-size: 0.813rem;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.5px;
+  text-align: center;
+  color: #fff;
+}
+
+/* form */
 
 .form-container {
   padding: 1rem;
