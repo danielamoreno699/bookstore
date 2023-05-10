@@ -37,8 +37,6 @@ a {
   align-items: center;
   width: 100%;
   height: 2.938rem;
-  /* margin: 0 0 2.375rem;
-  padding: 1.438rem 6.188rem 1.688rem 6.25rem; */
   background-color: #fff;
 }
 
@@ -166,8 +164,6 @@ a {
   align-items: center;
   list-style-type: none;
   margin-top: 1.5rem;
-
-  /* gap: 1.5rem; */
 }
 
 .link-button {
@@ -175,7 +171,7 @@ a {
   height: 1.188rem;
   margin: 0.188rem 0.938rem 0.125rem 0;
   font-family: RobotoSlab;
-  font-size: 1.275rem;
+  font-size: 0.875rem;
   font-weight: 300;
   font-stretch: normal;
   font-style: normal;
@@ -346,7 +342,7 @@ a {
   
   height: 2.813rem;
   margin-top: 2rem;
-  background-color: #000;
+  
   gap: 1rem;
   display: flex;
   justify-content: space-between;
@@ -355,21 +351,37 @@ a {
 input {
   width: 30rem;
   padding: 1rem;
+  border-radius: 4px;
+  border: solid 1px #e8e8e8;
+}
+
+input::placeholder {
+  color: #c4c4c4; /* Placeholder text color */
+  height: 1.188rem;
+  font-family: Montserrat;
+   font-size: 1rem;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.15px; 
+ 
 }
 
 .author-input{
-  /* margin-right: 9rem; */
-  display: inline-block;
-  max-width: 100%; 
+ 
+  /* display: inline-block; */
+  /* max-width: 100%;  */
   margin-right: 4rem;
 }
 .category-selector{
   width:23.813rem;
+  border-radius: 4px;
+  border: solid 1px #e8e8e8;
 }
 .btn-submit {
   width: 11.5rem;
   height: 2.813rem;
-  /* margin: 1.188rem 0 0 2.125rem; */
   padding: 0.801rem 1.188rem 0.886rem 1.375rem;
   border-radius: 3px;
   background-color: #0290ff;

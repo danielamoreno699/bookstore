@@ -79,7 +79,7 @@ const Form = () => {
 
           <input
             type="text"
-            placeholder="book author"
+            placeholder="add Author"
             value={formValues.author}
             name="author"
             onChange={onInputChange}
