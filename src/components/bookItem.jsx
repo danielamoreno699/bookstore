@@ -1,18 +1,43 @@
 import PropTypes from 'prop-types';
-import { useDispatch } from 'react-redux'
+import { useDispatch} from 'react-redux';
+import { useState, useEffect } from 'react';
+import { getBooks } from '@/redux/books/booksSlice';
 
 import { deleteBook } from '@/redux/books/booksSlice';
 
 const BookItem = ({ item_id, author, title,  category} ) => {
-  const dispatch = useDispatch()
+
+  const dispatch = useDispatch();
+  const [isLoading, setIsLoading] = useState(false);
+ 
+
+  useEffect(() => {
+    getBooks()
+  }, [dispatch])
+  
+
 
   const handleDelete = () => {
-    console.log('delete')
-    console.log('itemId', item_id)
-    console.log('author', author)
-    dispatch(deleteBook(item_id))
+  
+    setIsLoading(true); 
+    dispatch(deleteBook(item_id)).then(() => {
+      setIsLoading(false);
+      
+      dispatch(getBooks());
+    }).catch(() => {
+      
+      setIsLoading(false);
+    });
   }
    
+  
+ 
+
+  if (isLoading) {
+    return <div className="alert alert-success loading" role="alert">Loading...</div>;
+  }
+
+
     return (
       <div className="container-bookItem">
         <div className="book-reference">
