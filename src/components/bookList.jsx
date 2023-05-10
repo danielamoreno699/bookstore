@@ -15,8 +15,7 @@ const Books = () => {
     dispatch(getBooks());
   }, [dispatch]);
 
-  console.log("bookList:", bookList);
-  console.log("error:", error);
+ 
 
   if (error) {
     return <p>{error}</p>;

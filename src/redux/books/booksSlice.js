@@ -4,7 +4,7 @@ import axios from "axios";
 
 const url = "https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/MlarP3d61maa1H7Jrx4x/books"
 
-export const getBooks = createAsyncThunk('book/getBooks', async(name, thunkAPI) => {
+export const getBooks = createAsyncThunk('book/getBooks', async() => {
     try {
         const resp = await axios(url)
         console.log(resp.data)
@@ -12,6 +12,19 @@ export const getBooks = createAsyncThunk('book/getBooks', async(name, thunkAPI) 
     } catch (error) {
         return error
     }
+})
+
+export const postBook = createAsyncThunk('book/postBook', async(bookData) =>{
+     try {
+        const response = await axios({
+            method: 'post',
+            url: url,
+            data: bookData
+          });
+          return response.data
+     } catch (error) {
+        return error.response.data
+     }
 })
 
 

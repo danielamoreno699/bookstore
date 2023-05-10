@@ -1,7 +1,8 @@
 import { addBook } from '@/redux/books/booksSlice';
 import { useDispatch } from 'react-redux';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import { postBook } from '@/redux/books/booksSlice';
 
 const Form = () => {
   
@@ -14,10 +15,12 @@ const Form = () => {
   ];
 
   const dispatch = useDispatch();
-  
+
+ 
   const [formValues, setformValues] = useState({
     title: '',
     author: '',
+    categores: '',
     item_id: '',
   });
 
@@ -37,7 +40,7 @@ const Form = () => {
       return;
     }
 
-    dispatch(addBook({
+    dispatch(postBook({
       ...formValues,
       item_id: uuidv4() 
     }));
