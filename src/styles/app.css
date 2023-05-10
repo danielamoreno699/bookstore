@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Raleway:ital,wght@1,300&family=Roboto+Slab&display=swap');
 
 * {
   box-sizing: border-box;
@@ -159,7 +159,7 @@ a {
   height: 1.188rem;
   margin: 0.25rem 0 0;
   font-family: RobotoSlab;
-  font-size: 0.875rem;
+  font-size: 1.275rem;
   font-weight: 300;
   font-stretch: normal;
   font-style: normal;
@@ -171,6 +171,8 @@ a {
 
 .ul-actions {
   display: flex;
+  justify-content: left;
+  align-items: center;
   list-style-type: none;
   margin-top: 1.5rem;
 
@@ -182,16 +184,13 @@ a {
   height: 1.188rem;
   margin: 0.188rem 0.938rem 0.125rem 0;
   font-family: RobotoSlab;
-  font-size: 0.875rem;
+  font-size: 1.275rem;
   font-weight: 300;
   font-stretch: normal;
   font-style: normal;
   line-height: normal;
   background: none;
-  border: none;
-  padding: 0;
-  margin: 0;
-  font: inherit;
+  border:none;
   color: #4386bf;
   text-decoration: none;
   cursor: pointer;
