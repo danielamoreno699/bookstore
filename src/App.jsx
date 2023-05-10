@@ -1,13 +1,10 @@
-import BookstoreRouter from "./routers/bookStoreRouter"
+import BookstoreRouter from './routers/bookStoreRouter';
 
+const App = () => (
+  <>
+    <BookstoreRouter />
 
-const App = () => {
-  return (
-    <>
-    <BookstoreRouter/>
-   
   </>
-  )
-}
+);
 
-export default App
+export default App;
