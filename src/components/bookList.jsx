@@ -39,18 +39,21 @@ const Books = () => {
 
   return (
     <>
+      <div className="book-container-list">
 
-      {bookData.map((book) => (
-        <BookItem
-          key={book.key}
-          itemId={book.key}
-          author={book.author}
-          title={book.title}
-          category={book.category}
-        />
-      ))}
+        {bookData.map((book) => (
+          <BookItem
+            key={book.key}
+            itemId={book.key}
+            author={book.author}
+            title={book.title}
+            category={book.category}
 
-      <Form />
+          />
+        ))}
+        <Form />
+      </div>
+
     </>
   );
 };

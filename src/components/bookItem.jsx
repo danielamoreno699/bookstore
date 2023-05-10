@@ -33,22 +33,24 @@ const BookItem = ({
       <div className="book-reference">
         <div className="book-info-card">
           <div className="book-text">
-            <p>{category}</p>
-            <h4>{title}</h4>
-            <p>{author}</p>
+            <p className="category-txt">{category}</p>
+            <h4 className="title-txt">{title}</h4>
+            <p className="author-txt">{author}</p>
           </div>
           <div className="actions">
             <ul className="ul-actions">
               <li>
-                <button type="button">Comments</button>
+                <button type="button" className="link-button"> Comment</button>
               </li>
               <li>
-                <button type="button" onClick={handleDelete}>
-                  Delete Book
+
+                <button type="button" className="link-button" onClick={handleDelete}>
+                  Remove
                 </button>
+
               </li>
               <li>
-                <button type="button">Edit</button>
+                <button type="button" className="link-button"> Editt</button>
               </li>
             </ul>
           </div>
