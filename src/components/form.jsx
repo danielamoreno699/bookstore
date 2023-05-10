@@ -1,26 +1,23 @@
-import { useDispatch} from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { postBook } from '@/redux/books/booksSlice';
-import { getBooks } from '@/redux/books/booksSlice'; // import the getBooks action creator
+import { postBook, getBooks } from '../redux/books/booksSlice';
 
 const Form = () => {
-  
   const categories = [
     'science-fiction',
     'horror',
     'action',
-    'romance'
-    
+    'romance',
+
   ];
 
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    getBooks()
-  }, [dispatch])
-  
+    getBooks();
+  }, [dispatch]);
 
   const [formValues, setformValues] = useState({
     title: '',
@@ -38,53 +35,45 @@ const Form = () => {
 
   const onSubmit = (event) => {
     event.preventDefault();
-    console.log(formValues)
 
     if (formValues.title.trim().length <= 0 || formValues.author.trim().length <= 0) {
-      
       return;
     }
 
-    setIsLoading(true); 
+    setIsLoading(true);
     dispatch(postBook({
       ...formValues,
-      item_id: uuidv4() 
+      item_id: uuidv4(),
     })).then(() => {
       setIsLoading(false);
       setformValues({
         title: '',
         author: '',
         item_id: '',
-        category: ''
+        category: '',
       });
       dispatch(getBooks());
     }).catch(() => {
       setIsLoading(false);
     });
-
- 
-
-    
-    
   };
-
 
   if (isLoading) {
     return <div className="alert alert-success loading" role="alert">Loading...</div>;
   }
-
-
 
   return (
     <>
       <div className="form-container">
         <h3>Add new Book</h3>
         <form className="form" onSubmit={onSubmit}>
-          <input type="text" 
-          placeholder="book title" 
-          value={formValues.title} 
-          name="title" 
-          onChange={onInputChange} />
+          <input
+            type="text"
+            placeholder="book title"
+            value={formValues.title}
+            name="title"
+            onChange={onInputChange}
+          />
 
           <input
             type="text"
@@ -94,13 +83,13 @@ const Form = () => {
             onChange={onInputChange}
           />
           <select name="category" placeholder="Choose one..." value={formValues.category} onChange={onInputChange}>
-          <option value="">Choose one...</option>
+            <option value="">Choose one...</option>
             {categories.map((category) => (
               <option key={category} value={category}>
-            {category}
-            </option>
+                {category}
+              </option>
             ))}
-        </select>
+          </select>
           <button className="btn-submit" type="submit">
             Add Book
           </button>
