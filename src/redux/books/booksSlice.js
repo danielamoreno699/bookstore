@@ -27,6 +27,15 @@ export const postBook = createAsyncThunk('book/postBook', async(bookData) =>{
      }
 })
 
+export const deleteBook = createAsyncThunk('book/deleteBook', async( id) =>{
+    try {
+        const response = await axios.delete(`https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/PfDhhGhPeOhVMEoyWcnd/books/${id}`);
+        console.log(response.data); 
+        return response.data
+    } catch (error) {
+       return error.response.data
+    }
+})
 
 const initialState = {
     bookList : [],
