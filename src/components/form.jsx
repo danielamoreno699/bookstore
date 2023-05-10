@@ -83,8 +83,9 @@ const Form = () => {
             value={formValues.author}
             name="author"
             onChange={onInputChange}
+            className="author-input"
           />
-          <select name="category" placeholder="Choose one..." value={formValues.category} onChange={onInputChange}>
+          <select name="category" placeholder="Choose one..." value={formValues.category} onChange={onInputChange} className="category-selector">
             <option value="">Choose one...</option>
             {categories.map((category) => (
               <option key={category} value={category}>
