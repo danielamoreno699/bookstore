@@ -375,7 +375,7 @@ option {
 
 .category-selector {
   margin-left: -4rem;
-  width: 30.813rem;
+  width: 20.813rem;
   border-radius: 4px;
   border: solid 1px #e8e8e8;
   gap: 1rem;
@@ -385,7 +385,7 @@ option {
 @media (max-width: 1440px) {
   .category-selector {
     margin-left: -4rem;
-    width: 34.813rem;
+    width: 20.813rem;
   }
 }
 
