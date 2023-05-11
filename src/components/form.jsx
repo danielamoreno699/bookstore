@@ -68,24 +68,28 @@ const Form = () => {
         <span className="Title Text-Style-10">
           ADD NEW BOOK
         </span>
+
         <form className="form" onSubmit={onSubmit}>
 
-          <input
-            type="text"
-            placeholder="book title"
-            value={formValues.title}
-            name="title"
-            onChange={onInputChange}
-          />
+          <div className="input-items">
+            <input
+              type="text"
+              placeholder="book title"
+              value={formValues.title}
+              name="title"
+              onChange={onInputChange}
+            />
 
-          <input
-            type="text"
-            placeholder="add Author"
-            value={formValues.author}
-            name="author"
-            onChange={onInputChange}
-            className="author-input"
-          />
+            <input
+              type="text"
+              placeholder="add Author"
+              value={formValues.author}
+              name="author"
+              onChange={onInputChange}
+              className="author-input"
+            />
+
+          </div>
 
           <select name="category" placeholder="Choose one..." value={formValues.category} onChange={onInputChange} className="category-selector">
             <option value="">Choose Category</option>
@@ -95,6 +99,7 @@ const Form = () => {
               </option>
             ))}
           </select>
+
           <button className="btn-submit" type="submit">
             <span className="ADD-BOOK Text-Style">
               ADD BOOK
