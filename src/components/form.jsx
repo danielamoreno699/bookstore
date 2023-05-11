@@ -69,24 +69,24 @@ const Form = () => {
           ADD NEW BOOK
         </span>
         <form className="form" onSubmit={onSubmit}>
-          <div className="input-wrapper">
-            <input
-              type="text"
-              placeholder="book title"
-              value={formValues.title}
-              name="title"
-              onChange={onInputChange}
-            />
 
-            <input
-              type="text"
-              placeholder="add Author"
-              value={formValues.author}
-              name="author"
-              onChange={onInputChange}
-              className="author-input"
-            />
-          </div>
+          <input
+            type="text"
+            placeholder="book title"
+            value={formValues.title}
+            name="title"
+            onChange={onInputChange}
+          />
+
+          <input
+            type="text"
+            placeholder="add Author"
+            value={formValues.author}
+            name="author"
+            onChange={onInputChange}
+            className="author-input"
+          />
+
           <select name="category" placeholder="Choose one..." value={formValues.category} onChange={onInputChange} className="category-selector">
             <option value="">Choose Category</option>
             {categories.map((category) => (
