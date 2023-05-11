@@ -237,6 +237,7 @@ a {
 }
 
 .Current-Chapter {
+ 
   width: 7.875rem;
   height: 1.125rem;
   margin: 0.063rem 3.625rem 0 3.688rem;
@@ -281,7 +282,8 @@ a {
   padding: 0.438rem 1.188rem 0.5rem 1.375rem;
   border-radius: 3px;
   background-color: #0290ff;
-  border: none
+  border: none;
+  margin-top: 2rem;
 }
 
 .Update-progress {
@@ -382,10 +384,19 @@ option {
 }
 
 .category-selector {
-  width: 23.813rem;
+  margin-left: -4rem;
+  width: 30.813rem;
   border-radius: 4px;
   border: solid 1px #e8e8e8;
 }
+
+@media (max-width: 1440px) {
+  .category-selector {
+    margin-left: -4rem;
+    width: 34.813rem;
+  }
+}
+
 
 .btn-submit {
   width: 11.5rem;
