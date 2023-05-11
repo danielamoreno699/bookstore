@@ -83,7 +83,7 @@ const BookItem = ({
           Current Chapter
         </span>
         <span className="Current-Lesson Text-Style-4">
-          Chapter 17
+          Chapter3:"ALessonLearned"
         </span>
         <button type="button" className="btn-update-progress">
           <span className="Update-progress">
