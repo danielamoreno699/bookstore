@@ -453,3 +453,14 @@ option {
     width: 66rem;
   }
 }
+
+@media (min-width: 1445px) {
+
+  input{
+    width: 42%;
+  }
+  .input-items{
+    
+    width: 89rem;
+  }
+}
