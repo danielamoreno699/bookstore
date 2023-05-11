@@ -319,8 +319,8 @@ a {
 }
 
 @media (max-width: 1440px) {
-  .form-container {
-    width: 84%;
+  input{
+    width: 14rem
   }
 }
 
@@ -381,26 +381,20 @@ option {
   letter-spacing: -0.15px;
 }
 
-.author-input {
 
-  /* margin-right: 6rem; */
-}
 
 .category-selector {
-  /* margin-left: -4rem; */
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
   width: 20.813rem;
   border-radius: 4px;
   border: solid 1px #e8e8e8;
   gap: 1rem;
   margin-right: 2rem;
+  color: #c4c4c4;
+  font-size: 1rem;
 }
 
-@media (max-width: 1440px) {
-  .category-selector {
-    margin-left: -4rem;
-    width: 20.813rem;
-  }
-}
 
 .btn-submit {
   width: 11.5rem;
@@ -445,98 +439,17 @@ option {
     margin-top: 0.5rem;
   }
 
-  /* .container{
-    height: 108vh;
-    width: 119%;
-} */
-  
-
-  .container-bookItem {
-    flex-direction: column;
-   width: 52rem;
-    margin: 2.313rem 6.25rem 0;
-    padding: 3rem;
-
-    
-   
-  }
-
-  .category-txt {
-    
-    
-    opacity: 0.5;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.775rem;
-    font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #121212;
-  }
-  
-  .title-txt {
-    height: 1.813rem;
-  
-    font-family: 'Roboto Slab', serif;
-    font-size: 1.375rem;
-    font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: -0.1px;
-    color: #121212;
-  }
-  
-  .author-txt {
-    
-    height: 1.188rem;
-    /* margin: 0.25rem 0 0; */
-    font-family: 'Roboto Slab', serif;
-    font-size: 1.275rem;
-    font-weight: 300;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #4386bf;
-  }
-  
-  .ul-actions {
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    list-style-type: none;
-    
-  }
-
-  .Line-3 {
-    width: 0.125rem;
-    height: 4.375rem;
-    
-    border: solid 1px #e8e8e8;
-  }
 
   
 }
 
-@media (min-width: 769px) and (max-width: 1024px) {
-  .container-bookItem{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-style: groove;
-    width: 61rem;
-    height: 10.625rem;
-    margin: 2.313rem 6.25rem 0;
-    padding: 2rem 9.188rem 1.625rem 1.688rem;
-    border-radius: 4px;
-    border: solid 1px #e8e8e8;
-    background-color: #fff;
+@media (min-width: 769px) and (max-width: 1440px) {
+
+  input{
+    width: 42%;
   }
-
-  .form-container {
-    width: 90%;
-}
-
+  .input-items{
+    
+    width: 66rem;
+  }
 }
