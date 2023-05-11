@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { useState, useEffect } from 'react';
@@ -33,40 +34,63 @@ const BookItem = ({
       <div className="book-reference">
         <div className="book-info-card">
           <div className="book-text">
-            <p>{category}</p>
-            <h4>{title}</h4>
-            <p>{author}</p>
+            <p className="category-txt">{category}</p>
+            <h4 className="title-txt">{title}</h4>
+            <p className="author-txt">{author}</p>
           </div>
-          <div className="actions">
-            <ul className="ul-actions">
-              <li>
-                <button type="button">Comments</button>
-              </li>
-              <li>
-                <button type="button" onClick={handleDelete}>
-                  Delete Book
-                </button>
-              </li>
-              <li>
-                <button type="button">Edit</button>
-              </li>
-            </ul>
-          </div>
+
+          <ul className="ul-actions">
+            <li>
+              <button type="button" className="link-button"> Comment</button>
+            </li>
+            <div className="Line-2" />
+            <li>
+              <button type="button" className="link-button edit"> Edit</button>
+            </li>
+            <div className="Line-2" />
+            <li>
+
+              <button type="button" className="link-button" onClick={handleDelete}>
+                Remove
+              </button>
+
+            </li>
+
+          </ul>
+
         </div>
       </div>
 
       <div className="loading-status">
-        <div className="loadingSpinner" />
-        <div className="completed-status">
-          <h4> 17%</h4>
-          <p>completed</p>
-        </div>
-      </div>
 
+        <div className="spinner">
+          <div className="Oval-2" />
+
+        </div>
+        <div className="completed-status">
+          <span className="-Percent-Complete">
+            17%
+          </span>
+          <span className="Completed Text-Style-2">
+            Completed
+          </span>
+        </div>
+
+      </div>
+      <div className="Line-3" />
       <div className="book-status">
-        <p>CURRENT CHAPTER</p>
-        <p>chapter 1</p>
-        <button type="button">Update Progress</button>
+        <span className="Current-Chapter Text-Style-7">
+          Current Chapter
+        </span>
+        <span className="Current-Lesson Text-Style-4">
+          Chapter3:&ldquo;ALessonLearned&rdquo;
+        </span>
+        <button type="button" className="btn-update-progress">
+          <span className="Update-progress">
+            UPDATE PROGRESS
+          </span>
+        </button>
+
       </div>
     </div>
   );

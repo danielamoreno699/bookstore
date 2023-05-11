@@ -65,8 +65,11 @@ const Form = () => {
   return (
     <>
       <div className="form-container">
-        <h3>Add new Book</h3>
+        <span className="Title Text-Style-10">
+          ADD NEW BOOK
+        </span>
         <form className="form" onSubmit={onSubmit}>
+
           <input
             type="text"
             placeholder="book title"
@@ -77,13 +80,15 @@ const Form = () => {
 
           <input
             type="text"
-            placeholder="book author"
+            placeholder="add Author"
             value={formValues.author}
             name="author"
             onChange={onInputChange}
+            className="author-input"
           />
-          <select name="category" placeholder="Choose one..." value={formValues.category} onChange={onInputChange}>
-            <option value="">Choose one...</option>
+
+          <select name="category" placeholder="Choose one..." value={formValues.category} onChange={onInputChange} className="category-selector">
+            <option value="">Choose Category</option>
             {categories.map((category) => (
               <option key={category} value={category}>
                 {category}
@@ -91,8 +96,11 @@ const Form = () => {
             ))}
           </select>
           <button className="btn-submit" type="submit">
-            Add Book
+            <span className="ADD-BOOK Text-Style">
+              ADD BOOK
+            </span>
           </button>
+
         </form>
       </div>
     </>
