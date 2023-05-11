@@ -330,9 +330,7 @@ a {
 
 .form {
   height: 2.813rem;
-  margin-top: 2rem;
-
-  /* gap: 1rem; */
+  margin-top: 1rem;
   display: flex;
   justify-content: space-between;
 }
