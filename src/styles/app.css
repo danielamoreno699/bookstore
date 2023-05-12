@@ -9,7 +9,7 @@
 body {
   color: #000;
   background: #fff;
-  height: 90vh;
+  height: auto;
   font-family: 'Roboto Slab', serif;
   list-style-type: none;
   text-decoration: none;
