@@ -493,9 +493,19 @@ option {
 
   }
 
+  input{
+    width: 34rem;
+    margin-bottom: 1rem;
+  }
+
+  .category-selector{
+    width: 33.813rem;
+    margin-bottom: 1rem;
+  }
+
 }
 
-@media (min-width: 769px) and (max-width: 1440px) {
+@media (min-width: 769px) and (max-width: 1439px) {
 
   input{
     width: 42%;
@@ -503,6 +513,20 @@ option {
   .input-items{
     
     width: 66rem;
+  }
+}
+
+@media (min-width: 1000px) and (max-width: 1440px) {
+
+  input{
+    width: 42%;
+  }
+  .input-items{
+    
+    width: 66rem;
+  }
+  .book-container-list{
+    margin:0
   }
 }
 
