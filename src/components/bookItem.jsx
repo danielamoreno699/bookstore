@@ -1,33 +1,35 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { useState, useEffect } from 'react';
-import { getBooks, deleteBook } from '../redux/books/booksSlice';
+
+import {
+  startLoading, endLoading, setBooks, removeBook,
+} from '../redux/books/booksSlice';
+import { getBooksApi, deleteBookApi } from '../api/bookApi';
 
 const BookItem = ({
   itemId, author, title, category,
 }) => {
   const dispatch = useDispatch();
-  const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(() => {
-    getBooks();
-  }, [dispatch]);
-
-  const handleDelete = () => {
-    setIsLoading(true);
-    dispatch(deleteBook(itemId)).then(() => {
-      setIsLoading(false);
-
-      dispatch(getBooks());
-    }).catch(() => {
-      setIsLoading(false);
-    });
+  const fetchBooks = async () => {
+    dispatch(startLoading());
+    const books = await getBooksApi();
+    dispatch(endLoading());
+    dispatch(setBooks(books));
   };
 
-  if (isLoading) {
-    return <div className="alert alert-success loading" role="alert">Loading...</div>;
-  }
+  const asyncRemove = async () => {
+    try {
+      await deleteBookApi(itemId);
+      dispatch(removeBook(itemId));
+    } catch (error) {
+      return error;
+    }
+    return fetchBooks();
+  };
+  const handleDelete = () => {
+    asyncRemove(itemId);
+  };
 
   return (
     <div className="container-bookItem">

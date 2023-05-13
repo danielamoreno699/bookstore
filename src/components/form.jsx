@@ -1,29 +1,19 @@
-import { useDispatch } from 'react-redux';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { postBook, getBooks } from '../redux/books/booksSlice';
+import { useDispatch } from 'react-redux';
+import { postBookApi, getBooksApi } from '../api/bookApi';
+import { startLoading, endLoading, setBooks } from '../redux/books/booksSlice';
 
 const Form = () => {
-  const categories = [
-    'science-fiction',
-    'horror',
-    'action',
-    'romance',
-
-  ];
-
   const dispatch = useDispatch();
-  const [isLoading, setIsLoading] = useState(false);
+  const categories = ['science-fiction', 'horror', 'action', 'romance'];
 
-  useEffect(() => {
-    getBooks();
-  }, [dispatch]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const [formValues, setformValues] = useState({
     title: '',
     author: '',
     categores: '',
-    item_id: '',
   });
 
   const onInputChange = ({ target }) => {
@@ -33,33 +23,49 @@ const Form = () => {
     });
   };
 
+  const fetchBooks = async () => {
+    dispatch(startLoading());
+    const books = await getBooksApi();
+    dispatch(endLoading());
+    dispatch(setBooks(books));
+  };
+
+  const postBook = async (bookData) => {
+    await postBookApi(bookData);
+
+    setformValues({
+      title: '',
+      author: '',
+      category: '',
+    });
+    setIsLoading(false);
+    fetchBooks();
+  };
+
   const onSubmit = (event) => {
     event.preventDefault();
 
-    if (formValues.title.trim().length <= 0 || formValues.author.trim().length <= 0) {
+    if (
+      formValues.title.trim().length <= 0
+      || formValues.author.trim().length <= 0
+    ) {
       return;
     }
 
-    setIsLoading(true);
-    dispatch(postBook({
+    const bookData = {
       ...formValues,
       item_id: uuidv4(),
-    })).then(() => {
-      setIsLoading(false);
-      setformValues({
-        title: '',
-        author: '',
-        item_id: '',
-        category: '',
-      });
-      dispatch(getBooks());
-    }).catch(() => {
-      setIsLoading(false);
-    });
+    };
+
+    postBook(bookData);
   };
 
   if (isLoading) {
-    return <div className="alert alert-success loading" role="alert">Loading...</div>;
+    return (
+      <div className="alert alert-success loading" role="alert">
+        Loading...
+      </div>
+    );
   }
 
   return (

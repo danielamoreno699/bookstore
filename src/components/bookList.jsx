@@ -1,62 +1,42 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Form from './form';
 import BookItem from './bookItem';
-import { getBooks } from '../redux/books/booksSlice';
+import { startLoading, endLoading, setBooks } from '../redux/books/booksSlice';
+import { getBooksApi } from '../api/bookApi';
 
 const Books = () => {
-  const { bookList, error } = useSelector((store) => store.book);
-
+  const { bookList } = useSelector((store) => store.book);
   const dispatch = useDispatch();
 
+  const fetchBooks = async () => {
+    dispatch(startLoading());
+    const books = await getBooksApi();
+    dispatch(endLoading());
+    dispatch(setBooks(books));
+  };
+
   useEffect(() => {
-    dispatch(getBooks());
-  }, [dispatch]);
+    fetchBooks();
+  }, []);
 
-  if (error) {
-    return <p>{error}</p>;
-  }
-
-  const keys = Object.keys(bookList);
-  const bookData = keys.map((key) => {
-    const bookInfo = bookList[key][0];
-    return {
-      key,
-      author: bookInfo.author,
-      title: bookInfo.title,
-      category: bookInfo.category,
-    };
-  });
-
-  if (bookData.length === 0) {
+  if (bookList) {
     return (
-      <>
-        <p>No books found.</p>
-        <Form />
-      </>
-    );
-  }
-
-  return (
-    <>
       <div className="book-container-list">
-
-        {bookData.map((book) => (
+        {Object.entries(bookList).map(([key, bookArray]) => bookArray.map((book) => (
           <BookItem
-            key={book.key}
-            itemId={book.key}
+            key={key}
+            itemId={key}
             author={book.author}
             title={book.title}
             category={book.category}
-
           />
-        ))}
+        )))}
         <div className="Line" />
         <Form />
       </div>
-
-    </>
-  );
+    );
+  }
+  return null;
 };
-
 export default Books;
