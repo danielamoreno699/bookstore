@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-
+import React, { useState } from 'react';
+import Modal from './modal';
 import {
   startLoading, endLoading, setBooks, removeBook,
 } from '../redux/books/booksSlice';
@@ -10,6 +11,7 @@ const BookItem = ({
   itemId, author, title, category,
 }) => {
   const dispatch = useDispatch();
+  const [isOpen, setIsOpen] = useState(false);
 
   const fetchBooks = async () => {
     dispatch(startLoading());
@@ -31,6 +33,7 @@ const BookItem = ({
     asyncRemove(itemId);
   };
 
+
   return (
     <div className="container-bookItem">
       <div className="book-reference">
@@ -43,7 +46,11 @@ const BookItem = ({
 
           <ul className="ul-actions">
             <li>
-              <button type="button" className="link-button"> Comment</button>
+              <button type="button" className="link-button" onClick={() => setIsOpen(true)}>
+                Comments
+              </button>
+              {isOpen && <Modal setIsOpen={setIsOpen} />}
+
             </li>
             <div className="Line-2" />
             <li>
