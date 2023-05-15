@@ -6,10 +6,12 @@ const Modal = ({ setIsOpen, itemId }) => {
   const [comment, setComment] = useState('');
   const [commentsList, setCommentsList] = useState([]);
 
+  console.log('itemId', itemId)
+
   useEffect(() => {
     const storedComments = JSON.parse(localStorage.getItem(`comments_${itemId}`));
     if (storedComments) {
-      setCommentsList(JSON.parse(storedComments));
+      setCommentsList(storedComments);
     }
   }, [itemId]);
 

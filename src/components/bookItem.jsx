@@ -49,7 +49,7 @@ const BookItem = ({
               <button type="button" className="link-button" onClick={() => setIsOpen(true)}>
                 Comments
               </button>
-              {isOpen && <Modal setIsOpen={setIsOpen} />}
+              {isOpen && <Modal setIsOpen={setIsOpen} itemId={itemId}/>}
 
             </li>
             <div className="Line-2" />
