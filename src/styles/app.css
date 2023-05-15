@@ -378,6 +378,7 @@ option {
 .category-selector {
   padding-right: 0.5rem;
   padding-left: 0.5rem;
+  height: 3.5rem;
   width: 20.813rem;
   border-radius: 4px;
   border: solid 1px #e8e8e8;

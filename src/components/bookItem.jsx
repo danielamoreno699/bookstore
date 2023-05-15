@@ -12,6 +12,8 @@ const BookItem = ({
 }) => {
   const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
+  const [editingProgress, setEditingProgress] = useState(false);
+  const [percentComplete, setPercentComplete] = useState(0);
 
   const fetchBooks = async () => {
     dispatch(startLoading());
@@ -33,6 +35,14 @@ const BookItem = ({
     asyncRemove(itemId);
   };
 
+  const handleProgress = () => {
+    setEditingProgress(true);
+    console.log('click');
+  };
+
+  const handleProgressUpdate = () => {
+    setEditingProgress(false);
+  };
 
   return (
     <div className="container-bookItem">
@@ -49,7 +59,7 @@ const BookItem = ({
               <button type="button" className="link-button" onClick={() => setIsOpen(true)}>
                 Comments
               </button>
-              {isOpen && <Modal setIsOpen={setIsOpen} itemId={itemId}/>}
+              {isOpen && <Modal setIsOpen={setIsOpen} itemId={itemId} />}
 
             </li>
             <div className="Line-2" />
@@ -78,12 +88,19 @@ const BookItem = ({
 
           </div>
           <div className="completed-status">
-            <span className="-Percent-Complete">
-              17%
-            </span>
-            <span className="Completed Text-Style-2">
-              Completed
-            </span>
+            {editingProgress ? (
+              <input
+                type="number"
+                value={percentComplete}
+                onChange={(e) => setPercentComplete(e.target.value)}
+              />
+            ) : (
+              <span className="-Percent-Complete" onClick={handleProgress}>
+                {percentComplete}
+                %
+              </span>
+            )}
+            <span className="Completed Text-Style-2">Completed</span>
           </div>
 
         </div>
@@ -95,12 +112,11 @@ const BookItem = ({
           <span className="Current-Lesson Text-Style-4">
             Chapter3:&ldquo;ALessonLearned&rdquo;
           </span>
-          <button type="button" className="btn-update-progress">
+          <button type="button" className="btn-update-progress" onClick={editingProgress ? handleProgressUpdate : handleProgress}>
             <span className="Update-progress">
-              UPDATE PROGRESS
+              {editingProgress ? 'UPDATE' : 'UPDATE PROGRESS'}
             </span>
           </button>
-
         </div>
 
       </div>
