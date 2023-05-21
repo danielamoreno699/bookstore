@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Modal from './modal';
 import {
   startLoading, endLoading, setBooks, removeBook,
@@ -14,6 +14,13 @@ const BookItem = ({
   const [isOpen, setIsOpen] = useState(false);
   const [editingProgress, setEditingProgress] = useState(false);
   const [percentComplete, setPercentComplete] = useState(0);
+
+  useEffect(() => {
+    const savedPercentComplete = localStorage.getItem('percentComplete');
+    if (savedPercentComplete) {
+      setPercentComplete((savedPercentComplete));
+    }
+  }, [itemId]);
 
   const fetchBooks = async () => {
     dispatch(startLoading());
@@ -40,14 +47,24 @@ const BookItem = ({
     console.log('click');
   };
 
-  const handleProgressUpdate = () => {
-    setEditingProgress(false);
+  const handleProgressUpdate = (e) => {
+    if (e.key === 'Enter') {
+      const enteredValue = e.target.value;
+      if (enteredValue >= 0 && enteredValue <= 100) {
+        setPercentComplete(enteredValue);
+        localStorage.setItem('percentComplete', enteredValue);
+      }
+      setEditingProgress(false);
+    }
   };
 
   const progressCircleStyle = {
     backgroundImage: `conic-gradient(#307bbe ${(percentComplete / 100) * 360}deg, transparent 0deg)`,
 
   };
+
+  const handleEditChapter = () => {
+  }
 
   return (
     <div className="container-bookItem">
@@ -69,7 +86,7 @@ const BookItem = ({
             </li>
             <div className="Line-2" />
             <li>
-              <button type="button" className="link-button edit"> Edit</button>
+              <button type="button" className="link-button edit" onClick={handleEditChapter}> Edit</button>
             </li>
             <div className="Line-2" />
             <li>
@@ -105,23 +122,25 @@ const BookItem = ({
         <div className="Line-3" />
         <div className="book-status">
           {
-  editingProgress ? (
-    <div>
-      <input
-        type="number"
-        className="input-progress"
-        placeholder="0%"
-        onChange={(e) => setPercentComplete(`${e.target.value}`)}
-        min="0"
-        max="100"
-      />
-      <span>%</span>
-    </div>
-  ) : (
-    <span className="Current-Chapter Text-Style-7">
-      Current Chapter
-    </span>
-  )
+          editingProgress ? (
+            <div>
+              <input
+                type="number"
+                className="input-progress"
+                placeholder="0%"
+                onChange={(e) => setPercentComplete(`${e.target.value}`)}
+                onKeyUp={handleProgressUpdate}
+                min="0"
+                max="100"
+              />
+              <span>%</span>
+            </div>
+          ) : (
+            <span className="Current-Chapter Text-Style-7">
+              {percentComplete}
+              %
+            </span>
+          )
 }
           <span className="Current-Lesson Text-Style-4">
             Chapter3:&ldquo;ALessonLearned&rdquo;
