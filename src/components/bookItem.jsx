@@ -44,6 +44,11 @@ const BookItem = ({
     setEditingProgress(false);
   };
 
+  const progressCircleStyle = {
+    backgroundImage: `conic-gradient(#307bbe ${(percentComplete / 100) * 360}deg, transparent 0deg)`,
+
+  };
+
   return (
     <div className="container-bookItem">
       <div className="book-reference">
@@ -84,31 +89,40 @@ const BookItem = ({
         <div className="loading-status">
 
           <div className="spinner">
-            <div className="Oval-2" />
+            <div className="Oval-2" style={progressCircleStyle} />
 
           </div>
           <div className="completed-status">
-            {editingProgress ? (
-              <input
-                type="number"
-                value={percentComplete}
-                onChange={(e) => setPercentComplete(e.target.value)}
-              />
-            ) : (
-              <span className="-Percent-Complete" onClick={handleProgress}>
-                {percentComplete}
-                %
-              </span>
-            )}
+            <span className="-Percent-Complete">
+              {percentComplete}
+              %
+            </span>
+
             <span className="Completed Text-Style-2">Completed</span>
           </div>
 
         </div>
         <div className="Line-3" />
         <div className="book-status">
-          <span className="Current-Chapter Text-Style-7">
-            Current Chapter
-          </span>
+          {
+  editingProgress ? (
+    <div>
+      <input
+        type="number"
+        className="input-progress"
+        placeholder="0%"
+        onChange={(e) => setPercentComplete(`${e.target.value}`)}
+        min="0"
+        max="100"
+      />
+      <span>%</span>
+    </div>
+  ) : (
+    <span className="Current-Chapter Text-Style-7">
+      Current Chapter
+    </span>
+  )
+}
           <span className="Current-Lesson Text-Style-4">
             Chapter3:&ldquo;ALessonLearned&rdquo;
           </span>
