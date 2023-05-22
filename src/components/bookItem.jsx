@@ -14,6 +14,8 @@ const BookItem = ({
   const [isOpen, setIsOpen] = useState(false);
   const [editingProgress, setEditingProgress] = useState(false);
   const [percentComplete, setPercentComplete] = useState(0);
+  const [editingProgressChapter, setEditingProgressChapter] = useState(false);
+  const [currentChapter, setCurrentChapter] = useState('');
 
   useEffect(() => {
     const savedPercentComplete = localStorage.getItem('percentComplete');
@@ -63,8 +65,22 @@ const BookItem = ({
 
   };
 
-  const handleEditChapter = () => {
-  }
+  const handleEditChapter = (e) => {
+    setEditingProgressChapter(true);
+    console.log('click');
+    const text = e.target.value;
+    console.log(text);
+    setCurrentChapter(text);
+  };
+
+  const handleChapterKeyUp = (e) => {
+    if (e.key === 'Enter') {
+      const enteredValue = e.target.value;
+      console.log(enteredValue);
+      // Save enteredValue to local storage or perform any other necessary actions
+      setEditingProgressChapter(false);
+    }
+  };
 
   return (
     <div className="container-bookItem">
@@ -142,9 +158,23 @@ const BookItem = ({
             </span>
           )
 }
-          <span className="Current-Lesson Text-Style-4">
-            Chapter3:&ldquo;ALessonLearned&rdquo;
+          {editingProgressChapter ? (
+            <span className="Current-Lesson Text-Style-4">
+            <input
+              className="input-lesson"
+              type="text"
+              placeholder="Enter current chapter"
+              value={currentChapter}
+              onChange={(e) => setCurrentChapter(e.target.value)}
+              onKeyUp={handleChapterKeyUp}
+            />
           </span>
+          ) : (
+            <span className="Current-Lesson Text-Style-4">
+              {currentChapter }
+            </span>
+          )}
+
           <button type="button" className="btn-update-progress" onClick={editingProgress ? handleProgressUpdate : handleProgress}>
             <span className="Update-progress">
               {editingProgress ? 'UPDATE' : 'UPDATE PROGRESS'}

@@ -312,6 +312,9 @@ a {
   color: #fff;
 }
 
+.input-lesson{
+  width:fit-content
+}
 
 .form-container {
   border-top: solid 0.125rem #e8e8e8;
