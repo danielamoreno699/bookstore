@@ -13,9 +13,9 @@ const BookItem = ({
   const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
   const [editingProgress, setEditingProgress] = useState(false);
-  const [percentComplete, setPercentComplete] = useState(0);
+  const [percentComplete, setPercentComplete] = useState(2);
   const [editingProgressChapter, setEditingProgressChapter] = useState(false);
-  const [currentChapter, setCurrentChapter] = useState('');
+  const [currentChapter, setCurrentChapter] = useState('edit chapter');
 
   useEffect(() => {
     const savedPercentComplete = localStorage.getItem(`percentComplete_${itemId}`);
@@ -158,8 +158,8 @@ const BookItem = ({
             </div>
           ) : (
             <span className="Current-Chapter Text-Style-7">
+              
               {percentComplete}
-              %
             </span>
           )
 }
@@ -176,7 +176,7 @@ const BookItem = ({
             </span>
           ) : (
             <span className="Current-Lesson Text-Style-4">
-              {currentChapter }
+              {currentChapter}
             </span>
           )}
 

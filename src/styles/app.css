@@ -254,7 +254,7 @@ a {
 }
 
 .Current-Chapter {
-  width: 7.875rem;
+  width: auto;
   height: 1.125rem;
   margin: 0.063rem 3.625rem 0 3.688rem;
   opacity: 0.5;
@@ -269,7 +269,7 @@ a {
 }
 
 .Current-Lesson {
-  width: 4.688rem;
+  width: auto;
   height: 1.313rem;
   margin: 0.438rem 6.813rem 0.25rem 3.688rem;
   font-family: 'Roboto Slab', serif;
