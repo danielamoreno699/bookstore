@@ -435,14 +435,28 @@ option {
 
 @media (max-width: 768px) {
 
+  .book-container-list {
+    padding-top: 2rem;
+    margin:0;
+
+  }
 
   .container-nav {
     flex-direction: column;
     align-items: center;
+    margin: 0;
+  }
+
+  .panel-bg{
+    height: auto;
   }
 
   .nav-links {
-    margin-top: 1rem;
+    display:block
+  }
+
+  .nav-links a{
+    display: none;
   }
 
   .items {
@@ -513,12 +527,12 @@ option {
   }
 
   input{
-    width: 34rem;
+    width: 20rem;
     margin-bottom: 1rem;
   }
 
   .category-selector{
-    width: 33.813rem;
+    width: 20rem;
     margin-bottom: 1rem;
   }
 

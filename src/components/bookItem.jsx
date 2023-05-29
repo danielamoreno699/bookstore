@@ -18,9 +18,14 @@ const BookItem = ({
   const [currentChapter, setCurrentChapter] = useState('');
 
   useEffect(() => {
-    const savedPercentComplete = localStorage.getItem('percentComplete');
+    const savedPercentComplete = localStorage.getItem(`percentComplete_${itemId}`);
     if (savedPercentComplete) {
       setPercentComplete((savedPercentComplete));
+    }
+
+    const savedChapter = localStorage.getItem(`chapter_${itemId}`);
+    if (savedChapter) {
+      setCurrentChapter(savedChapter);
     }
   }, [itemId]);
 
@@ -54,7 +59,7 @@ const BookItem = ({
       const enteredValue = e.target.value;
       if (enteredValue >= 0 && enteredValue <= 100) {
         setPercentComplete(enteredValue);
-        localStorage.setItem('percentComplete', enteredValue);
+        localStorage.setItem(`percentComplete_${itemId}`, enteredValue);
       }
       setEditingProgress(false);
     }
@@ -77,7 +82,7 @@ const BookItem = ({
     if (e.key === 'Enter') {
       const enteredValue = e.target.value;
       console.log(enteredValue);
-      // Save enteredValue to local storage or perform any other necessary actions
+      localStorage.setItem(`chapter_${itemId}`, enteredValue);
       setEditingProgressChapter(false);
     }
   };
@@ -160,15 +165,15 @@ const BookItem = ({
 }
           {editingProgressChapter ? (
             <span className="Current-Lesson Text-Style-4">
-            <input
-              className="input-lesson"
-              type="text"
-              placeholder="Enter current chapter"
-              value={currentChapter}
-              onChange={(e) => setCurrentChapter(e.target.value)}
-              onKeyUp={handleChapterKeyUp}
-            />
-          </span>
+              <input
+                className="input-lesson"
+                type="text"
+                placeholder="Enter current chapter"
+                value={currentChapter}
+                onChange={(e) => setCurrentChapter(e.target.value)}
+                onKeyUp={handleChapterKeyUp}
+              />
+            </span>
           ) : (
             <span className="Current-Lesson Text-Style-4">
               {currentChapter }
