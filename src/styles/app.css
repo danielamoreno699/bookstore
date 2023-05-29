@@ -4,11 +4,11 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+ 
 }
 
 body {
-  color: #000;
-  background: #fff;
+
   height: auto;
   font-family: 'Roboto Slab', serif;
   list-style-type: none;
@@ -190,8 +190,11 @@ a {
   height: 4.25rem;
   border-radius: 50%;
   border: 4px solid #ccc;
-  border-top-color: #307bbe;
+  /* border-top-color: #307bbe; */
+
 }
+
+
 
 .spinner {
   padding: 1rem;
@@ -241,12 +244,17 @@ a {
 }
 
 .book-status {
+  align-items: center;
   display: flex;
   flex-direction: column;
 }
 
+.input-progress{
+  width: fit-content;
+}
+
 .Current-Chapter {
-  width: 7.875rem;
+  width: auto;
   height: 1.125rem;
   margin: 0.063rem 3.625rem 0 3.688rem;
   opacity: 0.5;
@@ -261,9 +269,9 @@ a {
 }
 
 .Current-Lesson {
-  width: 4.688rem;
+  width: auto;
   height: 1.313rem;
-  margin: 0.438rem 6.813rem 0.25rem 3.688rem;
+  margin: 0.438rem 1.813rem 0.25rem 3.688rem;
   font-family: 'Roboto Slab', serif;
   font-size: 1rem;
   font-weight: 300;
@@ -304,6 +312,9 @@ a {
   color: #fff;
 }
 
+.input-lesson{
+  width:fit-content
+}
 
 .form-container {
   border-top: solid 0.125rem #e8e8e8;
@@ -349,6 +360,13 @@ input {
   border: 1px #e8e8e8;
 }
 
+.input-progress {
+  margin-right: 2rem;
+  padding: 1rem;
+  border-radius: 4px;
+  border: 1px #e8e8e8;
+}
+
 input::placeholder {
   color: #c4c4c4;
   height: 1.188rem;
@@ -378,6 +396,7 @@ option {
 .category-selector {
   padding-right: 0.5rem;
   padding-left: 0.5rem;
+  height: 3.5rem;
   width: 20.813rem;
   border-radius: 4px;
   border: solid 1px #e8e8e8;
@@ -416,14 +435,34 @@ option {
 
 @media (max-width: 768px) {
 
+  .Current-Lesson {
+    width: auto;
+    height: 1.313rem;
+    margin: 0.438rem 5.813rem 0.25rem 3.688rem;
+  }
+
+  .book-container-list {
+    padding-top: 2rem;
+    margin:0;
+
+  }
 
   .container-nav {
     flex-direction: column;
     align-items: center;
+    margin: 0;
+  }
+
+  .panel-bg{
+    height: auto;
   }
 
   .nav-links {
-    margin-top: 1rem;
+    display:block
+  }
+
+  .nav-links a{
+    display: none;
   }
 
   .items {
@@ -494,18 +533,18 @@ option {
   }
 
   input{
-    width: 34rem;
+    width: 20rem;
     margin-bottom: 1rem;
   }
 
   .category-selector{
-    width: 33.813rem;
+    width: 20rem;
     margin-bottom: 1rem;
   }
 
 }
 
-@media (min-width: 769px) and (max-width: 1439px) {
+@media (min-width: 769px) and (max-width: 900px) {
 
   input{
     width: 42%;
@@ -525,9 +564,13 @@ option {
     
     width: 66rem;
   }
-  .book-container-list{
-    margin:0
+
+  .Line-3 {
+    width: 0.125rem;
+    border: solid 1px #e8e8e8;
+    margin: 0;
   }
+
 }
 
 @media (min-width: 1445px) {
